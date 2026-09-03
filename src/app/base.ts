@@ -20,19 +20,30 @@ export class Base {
         )
     }
 
-    add(){
-        const ember ={
-            name:"Dezső",
-            age:50,
-            gender:"férfi"
-        }
+    add(ujEmber:any){
+        // const ember ={
+        //     name:"Dezső",
+        //     age:50,
+        //     gender:"férfi"
+        // }
         
-        this.http.post(this.url,ember).subscribe(
+        this.http.post(this.url,ujEmber).subscribe(
             ()=>this.read()
         )
 
 
     }
+   ment(ember:any){              
+        this.http.put(this.url+ember.id,ember).subscribe(
+            ()=>this.read()
+        )
+     }
+   
+     torol(ember:any){              
+        this.http.delete(this.url+ember.id).subscribe(
+            ()=>this.read()
+        )
+     }
 
 
 }

@@ -1,4 +1,32 @@
 <p>people works!</p>
+<input [(ngModel)]="ujEmber.name">
+<input [(ngModel)]="ujEmber.gender">
+<input [(ngModel)]="ujEmber.age">
 <button (click)="add()" >Add</button>
 
 {{people()|json}}
+
+
+@for(p of people(); track people().id){
+<div class="row my-2">
+    <div class="col">
+        <input class="form-control" [(ngModel)]="p.name" >
+    </div>
+    <div class="col">
+        <input class="form-control" [(ngModel)]="p.gender" >
+    </div>
+    <div class="col">
+        <input type="number" class="form-control" [(ngModel)]="p.age" >
+    </div>
+
+    <div class="col">
+        <button (click)="save(p)" class="btn btn-primary">Ment</button>
+    </div>
+
+    <div class="col">
+        <button (click)="torol(p)" class="btn btn-danger">Törlés</button>
+    </div>
+
+</div>
+}
+
